@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claro — Clear your mailbox by sender</title>
+    <title>ClaroMail — Inbox clarity</title>
     <meta
       name="description"
       content="Claro is a Chrome extension that helps you clean a Microsoft mailbox by sender — soft-delete noise and create server-side block rules."
@@ -19,115 +19,372 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="images/claro-icon.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-nav">
-      <a class="nav-brand" href="/">Claro</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#how">How it works</a>
-        <a href="#safety">Safety</a>
-      </nav>
+      <div class="wrap nav-inner">
+        <a class="brand brand--nav" href="/">
+          <img
+            class="brand-mark"
+            src="images/claro-icon.png"
+            alt=""
+            width="48"
+            height="48"
+          />
+          <span class="brand-copy">
+            <span class="brand-name">Claro<span class="brand-mail">Mail</span></span>
+            <span class="brand-tag">Inbox Clarity</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+        <a class="nav-cta" href="mailto:hello@claromail.app">Request access</a>
+      </div>
     </header>
 
     <section class="hero" aria-label="Claro">
       <div class="hero-atmosphere" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
 
-      <div class="hero-copy">
-        <p class="hero-brand">Claro</p>
-        <h1 class="hero-headline">Clear the noise. Keep what matters.</h1>
-        <p class="hero-support">
-          A Chrome side panel for Microsoft mail — scan by sender, soft-delete
-          clutter, and block the rest on the server.
-        </p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#how">See how it works</a>
-          <a class="btn ghost" href="mailto:hello@claromail.app"
-            >Request access</a
-          >
-        </div>
-      </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <div class="panel-stage">
-          <div class="panel-chrome">
-            <span></span><span></span><span></span>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="brand brand--hero">
+            <img
+              class="brand-mark"
+              src="images/claro-icon.png"
+              alt=""
+              width="72"
+              height="72"
+            />
+            <span class="brand-copy">
+              <span class="brand-name">Claro<span class="brand-mail">Mail</span></span>
+              <span class="brand-tag">Inbox Clarity</span>
+            </span>
           </div>
-          <p class="panel-brand">Claro</p>
-          <ul class="panel-steps">
-            <li class="is-done"><span>1</span> Connect</li>
-            <li class="is-done"><span>2</span> Scan</li>
-            <li class="is-active"><span>3</span> Review &amp; clean</li>
-            <li><span>4</span> Recovery</li>
-            <li><span>5</span> Keep list</li>
-          </ul>
-          <div class="panel-rows">
-            <div class="row r1">
-              <strong>newsletter.example</strong><em>142</em>
+          <h1 class="hero-headline">Clear the noise. Keep what matters.</h1>
+          <p class="hero-support">
+            A Chrome side panel for Microsoft mail — scan by sender, soft-delete
+            clutter, and block the rest on the server.
+          </p>
+          <p class="hero-trust">
+            We don’t copy or store your emails. Cleanup runs against your
+            Microsoft mailbox — mail never leaves Microsoft for ClaroMail.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#how">See how it works</a>
+            <a class="btn ghost" href="mailto:hello@claromail.app"
+              >Request access</a
+            >
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="panel-stage" data-demo="panel" data-stage="connect">
+            <div class="panel-chrome">
+              <span></span><span></span><span></span>
             </div>
-            <div class="row r2">
-              <strong>promo-blasts.io</strong><em>89</em>
+            <p class="panel-brand">Claro<span>Mail</span></p>
+            <p class="panel-account" data-demo="account">
+              <span class="panel-account-dot"></span>
+              Sign in with Microsoft
+            </p>
+            <ul class="panel-steps">
+              <li data-step="connect"><span>1</span> Connect</li>
+              <li data-step="scan"><span>2</span> Scan</li>
+              <li data-step="review"><span>3</span> Review &amp; clean</li>
+            </ul>
+            <div class="panel-rows">
+              <div class="row r1" data-demo="row" data-sender="newsletter.example">
+                <strong>newsletter.example</strong><em data-count="142">0</em>
+              </div>
+              <div class="row r2" data-demo="row" data-sender="promo-blasts.io">
+                <strong>promo-blasts.io</strong><em data-count="89">0</em>
+              </div>
+              <div class="row r3" data-demo="row" data-sender="alerts.noise.com">
+                <strong>alerts.noise.com</strong><em data-count="56">0</em>
+              </div>
             </div>
-            <div class="row r3">
-              <strong>alerts.noise.com</strong><em>56</em>
-            </div>
+            <p class="panel-toast" data-demo="toast"></p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="how">
-      <h2>How it works</h2>
-      <p class="section-lead">
-        Four passes in Scan, then you decide what leaves the mailbox.
-      </p>
-      <ol class="flow">
-        <li>
-          <strong>Scan</strong>
-          <span
-            >Read a folder, find already-blocked leftovers, move them to Deleted
-            Items, then analyze who you’ve emailed.</span
-          >
-        </li>
-        <li>
-          <strong>Review &amp; clean</strong>
-          <span
-            >Delete, block, or delete + block by address or entire domain. Keep
-            the senders you still want.</span
-          >
-        </li>
-        <li>
-          <strong>Recover or keep</strong>
-          <span
-            >Restore mistakes from Deleted Items, or add domains like
-            adobe.com to a Keep list so they stay out of future scans.</span
-          >
-        </li>
-      </ol>
+      <div class="wrap">
+        <h2>How it works</h2>
+        <p class="section-lead">
+          Four passes in Scan, then you decide what leaves the mailbox.
+        </p>
+        <ol class="flow">
+          <li>
+            <strong>Scan</strong>
+            <span
+              >Group messages by sender, find already-blocked leftovers, move
+              them to Deleted Items, then see who you’ve emailed — without
+              copying mail out of Microsoft.</span
+            >
+          </li>
+          <li>
+            <strong>Review &amp; clean</strong>
+            <span
+              >Delete, block, or delete + block by address or entire domain.
+              Keep the senders you still want.</span
+            >
+          </li>
+          <li>
+            <strong>Recover or keep</strong>
+            <span
+              >Restore mistakes from Deleted Items, or add domains like
+              adobe.com to a Keep list so they stay out of future scans.</span
+            >
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <section class="section section-safety" id="safety">
-      <h2>Soft delete by design</h2>
-      <p class="section-lead">
-        Claro moves mail to Deleted Items. It does not permanently purge your
-        mailbox. Block rules live on Microsoft’s servers — they keep working
-        when the extension is closed.
-      </p>
+    <section class="section" id="features">
+      <div class="wrap">
+        <h2>Features</h2>
+        <p class="section-lead">
+          What you get in the side panel — shown the way it appears in the app.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <div class="feature-copy">
+              <strong>Chrome side panel</strong>
+              <span
+                >Works beside Outlook on the web. Open ClaroMail from the
+                toolbar without leaving your inbox.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <div class="fm-chrome"><span></span><span></span><span></span></div>
+                <p class="fm-brand">Claro<span>Mail</span></p>
+                <p class="fm-account"><span class="fm-dot is-on"></span>you@outlook.com</p>
+                <ul class="fm-nav">
+                  <li class="is-on">Connect</li>
+                  <li>Scan</li>
+                  <li>Review</li>
+                  <li>Recovery</li>
+                  <li>Keep</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="feature-copy">
+              <strong>Scan by sender</strong>
+              <span
+                >Read a folder, group messages by who sent them, and surface
+                leftovers that already have a block rule.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <p class="fm-title">Scan</p>
+                <ul class="fm-pipeline">
+                  <li class="is-done"><span>✓</span> Scan folder</li>
+                  <li class="is-done"><span>✓</span> Find blocked</li>
+                  <li class="is-active"><span>3</span> Soft-delete leftovers</li>
+                  <li><span>4</span> Analyze Sent</li>
+                </ul>
+                <p class="fm-note">287 messages · 41 senders</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="feature-copy">
+              <strong>Review &amp; clean</strong>
+              <span
+                >Delete, create a block rule, or do both — for one address or an
+                entire domain. Keep senders you still want.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <p class="fm-title">Review &amp; clean</p>
+                <div class="fm-actions">
+                  <span>Delete</span>
+                  <span>Block</span>
+                  <span class="is-primary">Delete + block</span>
+                  <span>Keep</span>
+                </div>
+                <div class="fm-rows">
+                  <div class="fm-row is-selected">
+                    <strong>newsletter.example</strong><em>142</em>
+                  </div>
+                  <div class="fm-row">
+                    <strong>promo-blasts.io</strong><em>89</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="feature-copy">
+              <strong>Soft delete</strong>
+              <span
+                >Mail moves to Deleted Items. ClaroMail never permanently
+                purges your mailbox.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <p class="fm-title">Soft delete</p>
+                <div class="fm-soft">
+                  <div class="fm-row is-leaving">
+                    <strong>newsletter.example</strong><em>142</em>
+                  </div>
+                  <div class="fm-tray">
+                    <span>Deleted Items</span>
+                    <em>142 moved</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="feature-copy">
+              <strong>Server-side block rules</strong>
+              <span
+                >Rules live on Microsoft’s servers, so they keep working in
+                Outlook Web, desktop, and mobile — even when the extension is
+                closed.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <p class="fm-title">Block rule</p>
+                <div class="fm-rule">
+                  <strong>newsletter.example</strong>
+                  <span>If from this sender → move to Deleted Items</span>
+                  <em>On Microsoft servers</em>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="feature-copy">
+              <strong>Keep list</strong>
+              <span
+                >Mark trusted addresses or domains so they stay out of future
+                scans.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <p class="fm-title">Keep list</p>
+                <ul class="fm-keep">
+                  <li><strong>adobe.com</strong><span>domain</span></li>
+                  <li><strong>hr@company.com</strong><span>address</span></li>
+                  <li><strong>bankofamerica.com</strong><span>domain</span></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="feature-copy">
+              <strong>Recovery</strong>
+              <span
+                >If you cleaned too aggressively, restore matching mail from
+                Deleted Items and optionally remove the block rule.</span
+              >
+            </div>
+            <div class="feature-mock" aria-hidden="true">
+              <div class="fm-panel">
+                <p class="fm-title">Recovery</p>
+                <p class="fm-search">Search block rules…</p>
+                <div class="fm-rows">
+                  <div class="fm-row is-selected">
+                    <strong>newsletter.example</strong><em>restore</em>
+                  </div>
+                  <div class="fm-row">
+                    <strong>alerts.noise.com</strong><em>38</em>
+                  </div>
+                </div>
+                <p class="fm-note is-ok">Restore selected from Deleted Items</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-privacy" id="privacy">
+      <div class="wrap">
+        <h2>We don’t store your emails</h2>
+        <p class="section-lead">
+          ClaroMail sorts and cleans inside your Microsoft account. We don’t
+          copy messages to our servers, and we don’t keep a mirror of your
+          inbox.
+        </p>
+        <ul class="privacy-points">
+          <li>
+            <strong>Mail stays with Microsoft</strong>
+            <span
+              >Scan, soft-delete, and block run through Microsoft Graph on the
+              mailbox you sign into — not a ClaroMail mail store.</span
+            >
+          </li>
+          <li>
+            <strong>No message archive on our side</strong>
+            <span
+              >We don’t upload or retain your email bodies. Tokens and your Keep
+              list stay on this device in Chrome storage.</span
+            >
+          </li>
+          <li>
+            <strong>Soft delete by design</strong>
+            <span
+              >Cleanup moves mail to Deleted Items. Block rules live on
+              Microsoft’s servers and keep working when the extension is
+              closed.</span
+            >
+          </li>
+        </ul>
+        <p class="privacy-more">
+          <a href="privacy.html">Read the full privacy policy</a>
+        </p>
+      </div>
     </section>
 
     <footer class="site-footer">
-      <div class="footer-brand">Claro</div>
-      <p>
-        <a href="https://claromail.app">claromail.app</a>
-        · Chrome extension for Microsoft mail
-      </p>
-      <p class="footer-meta">
-        <a href="mailto:hello@claromail.app">hello@claromail.app</a>
-      </p>
+      <div class="wrap footer-inner">
+        <div class="brand brand--footer">
+          <img
+            class="brand-mark"
+            src="images/claro-icon.png"
+            alt=""
+            width="40"
+            height="40"
+          />
+          <span class="brand-copy">
+            <span class="brand-name">Claro<span class="brand-mail">Mail</span></span>
+            <span class="brand-tag">Inbox Clarity</span>
+          </span>
+        </div>
+        <p>
+          <a href="https://claromail.app">claromail.app</a>
+          · Chrome extension for Microsoft mail
+        </p>
+        <p class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:hello@claromail.app">hello@claromail.app</a>
+        </p>
+        <p class="footer-meta">© 2026 Grovik LLC</p>
+      </div>
     </footer>
+    <script src="demo.js" defer></script>
   </body>
 </html>
