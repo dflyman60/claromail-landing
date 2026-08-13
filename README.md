@@ -4,7 +4,9 @@ Marketing site for [Claro](https://claromail.app) — clear a Microsoft mailbox 
 
 Static site: `index.html` + `styles.css`. Same pattern as Haylo landing.
 
-The Chrome extension lives in a separate repo (`outlook-management` / Claro).
+**Pricing / offer copy for page builds:** see [`PRICING.md`](./PRICING.md).
+
+The Chrome extension lives in a separate repo (`claro` / outlook-management).
 
 ## Local development
 
