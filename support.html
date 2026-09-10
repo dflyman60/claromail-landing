@@ -59,6 +59,12 @@
           Answers for ClaroMail — the browser extension that cleans a Microsoft
           mailbox by sender. Still stuck? Email us and we’ll help.
         </p>
+        <p class="legal-lead" id="uninstalledNote" hidden>
+          Thanks for trying ClaroMail. If something blocked you from signing in
+          or cleaning mail, reply to
+          <a href="mailto:hello@claromail.app">hello@claromail.app</a>
+          — we read every note.
+        </p>
 
         <div class="support-contact">
           <p class="support-contact-label">Email support</p>
@@ -228,5 +234,15 @@
         <p class="footer-meta">© 2026 Grovik LLC</p>
       </div>
     </footer>
+    <script>
+      (function () {
+        try {
+          if (new URLSearchParams(location.search).get("uninstalled") === "1") {
+            var el = document.getElementById("uninstalledNote");
+            if (el) el.hidden = false;
+          }
+        } catch (_) {}
+      })();
+    </script>
   </body>
 </html>
