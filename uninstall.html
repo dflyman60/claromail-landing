@@ -191,10 +191,10 @@
 
           var body = {
             name: "uninstall_feedback",
-            installId: isUuid(installId) ? installId : undefined,
+            installId: isUuid(installId) ? installId : "",
             props: {
               reason: reasonEl.value,
-              comment: comment || null,
+              comment: comment || "",
             },
           };
 
