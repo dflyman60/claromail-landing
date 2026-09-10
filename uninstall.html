@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We’re sorry to see you go — ClaroMail</title>
+    <meta
+      name="description"
+      content="Quick optional feedback after uninstalling ClaroMail. Used only to improve the product."
+    />
+    <link rel="canonical" href="https://claromail.app/uninstall" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="images/claro-icon.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-nav">
+      <div class="wrap nav-inner">
+        <a class="brand brand--nav" href="/">
+          <img
+            class="brand-mark"
+            src="images/claro-icon.png"
+            alt=""
+            width="48"
+            height="48"
+          />
+          <span class="brand-copy">
+            <span class="brand-name">Claro<span class="brand-mail">Mail</span></span>
+            <span class="brand-tag">Inbox Clarity</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <a class="nav-cta" href="mailto:hello@claromail.app">Contact</a>
+      </div>
+    </header>
+
+    <main class="legal">
+      <div class="wrap legal-inner uninstall-inner">
+        <p class="legal-kicker">Feedback</p>
+        <h1 class="legal-headline">We’re sorry to see you go</h1>
+        <p class="legal-lead">
+          We appreciate you trying ClaroMail. Your input helps us make the
+          product better — one short choice is enough, and it’s optional.
+        </p>
+        <p class="uninstall-privacy">
+          Feedback is used only to improve ClaroMail. We don’t sell it. See our
+          <a href="privacy.html">privacy policy</a>.
+        </p>
+
+        <form class="uninstall-form" id="uninstallForm" novalidate>
+          <fieldset class="uninstall-fieldset">
+            <legend class="uninstall-legend">
+              Why did you uninstall? (select one)
+            </legend>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="sign_in_trouble" required />
+              <span>Couldn’t sign in / Microsoft login trouble</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="unclear_how" />
+              <span>Wasn’t clear how to use it</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="not_useful" />
+              <span>Didn’t need it / not useful for me</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="privacy" />
+              <span>Privacy or permissions concern</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="pricing" />
+              <span>Pricing / didn’t want to pay</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="bug" />
+              <span>Bug or technical problem</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="switched" />
+              <span>Using something else</span>
+            </label>
+            <label class="uninstall-option">
+              <input type="radio" name="reason" value="other" />
+              <span>Other</span>
+            </label>
+          </fieldset>
+
+          <label class="uninstall-comment-label" for="comment">
+            Anything else? (optional)
+          </label>
+          <textarea
+            class="uninstall-comment"
+            id="comment"
+            name="comment"
+            rows="3"
+            maxlength="500"
+            placeholder="A sentence or two is plenty"
+          ></textarea>
+
+          <p class="uninstall-error" id="formError" hidden></p>
+
+          <div class="uninstall-actions">
+            <button type="submit" class="btn primary" id="submitBtn">
+              Send feedback
+            </button>
+            <a class="btn ghost" href="/">Skip</a>
+          </div>
+        </form>
+
+        <div class="uninstall-thanks" id="thanks" hidden>
+          <h2 class="uninstall-thanks-title">Thank you</h2>
+          <p class="legal-lead">
+            We read every note. If you want to say more, email
+            <a href="mailto:hello@claromail.app">hello@claromail.app</a>.
+          </p>
+          <p>
+            <a class="btn primary" href="/">Back to ClaroMail</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p class="footer-links">
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:hello@claromail.app">hello@claromail.app</a>
+        </p>
+        <p class="footer-meta">© 2026 Grovik LLC</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var API = "https://claro-api.grovik.workers.dev";
+        var params = new URLSearchParams(location.search);
+        var installId = params.get("installId") || "";
+        var form = document.getElementById("uninstallForm");
+        var thanks = document.getElementById("thanks");
+        var formError = document.getElementById("formError");
+        var submitBtn = document.getElementById("submitBtn");
+
+        function isUuid(v) {
+          return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+            v || "",
+          );
+        }
+
+        // Record uninstall when Chrome opens this page after remove.
+        if (isUuid(installId)) {
+          try {
+            fetch(API + "/v1/anon/events", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name: "extension_uninstalled",
+                installId: installId,
+                props: { source: "uninstall_page" },
+              }),
+              keepalive: true,
+            }).catch(function () {});
+          } catch (_) {}
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          formError.hidden = true;
+          var reasonEl = form.querySelector('input[name="reason"]:checked');
+          if (!reasonEl) {
+            formError.textContent = "Please select one reason.";
+            formError.hidden = false;
+            return;
+          }
+          var comment = (document.getElementById("comment").value || "")
+            .trim()
+            .slice(0, 500);
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending…";
+
+          var body = {
+            name: "uninstall_feedback",
+            installId: isUuid(installId) ? installId : undefined,
+            props: {
+              reason: reasonEl.value,
+              comment: comment || null,
+            },
+          };
+
+          fetch(API + "/v1/anon/uninstall-feedback", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error("bad status");
+              form.hidden = true;
+              thanks.hidden = false;
+            })
+            .catch(function () {
+              formError.textContent =
+                "Couldn’t send just now — email hello@claromail.app if you’d like.";
+              formError.hidden = false;
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Send feedback";
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

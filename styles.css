@@ -1690,3 +1690,88 @@ a {
     transition: none !important;
   }
 }
+
+/* Uninstall feedback */
+.uninstall-inner {
+  max-width: 40rem;
+}
+
+.uninstall-privacy {
+  margin: 0 0 28px;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.uninstall-form {
+  margin: 0 0 40px;
+  padding: 22px 20px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.uninstall-fieldset {
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+}
+
+.uninstall-legend {
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.uninstall-option {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0 0 10px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+.uninstall-option input {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.uninstall-comment-label {
+  display: block;
+  margin: 0 0 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.uninstall-comment {
+  width: 100%;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+.uninstall-error {
+  margin: 0 0 12px;
+  color: #b42318;
+  font-size: 0.92rem;
+}
+
+.uninstall-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.uninstall-thanks-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+}
